@@ -129,7 +129,7 @@ class Detail extends Component {
                             </p>
                         </div>
                    
-                        <div>
+                        
                             <Modal show={this.state.showSMS} handleClose={this.hideSMSModal}>
                                 <h1 className="sms-title">SMS Message to Supplier</h1>
                                 <textarea 
@@ -148,6 +148,9 @@ class Detail extends Component {
                                 >
                                 </textarea>
                             </Modal>
+                        <div>
+                            <div className="thank-you">Please contact the Supplier to complete the payment and delivery arrangement.</div>
+                            <div className="thank-you">Thank you for using Grills on the Go!</div>
                             <FormBtn className="sms-button" onClick={this.showSMSModal}>SMS to Supplier</FormBtn>
                             <FormBtn 
                                 className="email-button" 
