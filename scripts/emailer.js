@@ -9,7 +9,7 @@ let user_cred, pass_cred;
     // user_cred = process.env.user_email; // development setup
     // pass_cred = process.env.user_password; // development setup
     user_cred = "projecttwo22@gmail.com";
-    pass_cred = "5f1nAlProject";
+    pass_cred = "";
 // }
 
 const sendEmail = (body, response) => {
