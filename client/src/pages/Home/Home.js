@@ -4,6 +4,7 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
+import "./home.css";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 
@@ -16,22 +17,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    this.loadBooks();
   }
-
-  loadBooks = () => {
-    API.getBooks()
-      .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -59,9 +45,7 @@ class Home extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>
-                <a href="/rent">I want to rent</a>
-              </h1>
+              <Link className="home-links" to="/rent">I want to Rent</Link>
             </Jumbotron>
             {/* <form> 
               <Input
@@ -92,9 +76,7 @@ class Home extends Component {
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>
-                <a href="/supplier">I want to Supply</a>
-              </h1>
+              <Link className="home-links" to="/supplier">I want to Supply</Link>
             </Jumbotron>
             {/* {this.state.books.length ? (
               <List>

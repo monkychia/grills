@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
+import "./rent.css";
 
 class Rent extends Component {
   state = {
@@ -13,26 +14,29 @@ class Rent extends Component {
     grill: "",
     requestDate: "",
     location: "",
-    showSearch: false
+    showSearch: false,
+    title: "",
+    author: "",
+    synopsis: ""
   };
 
   componentDidMount() {
-    this.loadBooks();
+    // this.loadBooks();
   }
 
-  loadBooks = () => {
-    API.getBooks()
-      .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      )
-      .catch(err => console.log(err));
-  };
+  // loadBooks = () => {
+  //   API.getBooks()
+  //     .then(res =>
+  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
+  // deleteBook = id => {
+  //   API.deleteBook(id)
+  //     .then(res => this.loadBooks())
+  //     .catch(err => console.log(err));
+  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -59,8 +63,9 @@ class Rent extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { grill, requestDate, location } = this.state;
+    console.error(grill);
     if (grill && requestDate) {
-      API.searchGrills({ title: this.state.grill })
+      API.searchGrills({ title: grill })
         .then(res => {
           console.log("------ 63 res", res);
 
@@ -83,9 +88,7 @@ class Rent extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>
-                <a href="/search">I AM IN RENT PAGE</a>
-              </h1>
+              <span className="jumbo">Find a Grill</span>
             </Jumbotron>
             <form>
               <Input
@@ -117,7 +120,7 @@ class Rent extends Component {
 
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Search Results</h1>
+              <span className="jumbo">Search Results</span>
             </Jumbotron>
             {this.state.books.length ? (
               <List>

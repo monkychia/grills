@@ -4,6 +4,7 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
+import "./search.css";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 
@@ -59,9 +60,9 @@ class SearchResult extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>
-                <a href="/rentconf">I AM IN SEARCH RESULT PAGE</a>
-              </h1>
+              
+                <span>I AM IN SEARCH RESULT PAGE</span>
+              
             </Jumbotron>
             {/* <form> 
               <Input
