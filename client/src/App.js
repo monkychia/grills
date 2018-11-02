@@ -19,7 +19,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      authenticated: true
+      authenticated: false
     };
     this.userBecameAuthenticated = this.userBecameAuthenticated.bind(this);
   }
