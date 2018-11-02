@@ -106,7 +106,7 @@ class Detail extends Component {
                     <Col size="md-12">
                         <Jumbotron
                             className="jumbo">
-                            <h1>Details</h1>
+                            <h1>Confirmation</h1>
                         </Jumbotron>
                     </Col>
                 </Row>
